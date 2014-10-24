@@ -1,11 +1,19 @@
-body{
+body {
 	margin:0;
 	padding: 0;
 }
-html, #map{
+html, #map {
 	position:absolute; top:0; bottom:0; width:100%;
 }
-#save{
+#save {
 	position: absolute;
 	bottom:0;
+}
+
+#toGeoJSON {
+	background-color: #ccc;
+	border: #2FBD57 2px;
+	color: black;
+	padding: 3px;
+	margin: 1%;
 }
