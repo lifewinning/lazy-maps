@@ -1,0 +1,28 @@
+body {
+	margin:0;
+	padding: 0;
+}
+html, #map {
+	position:absolute; top:0; bottom:0; width:100%;
+}
+#save {
+	position: absolute;
+	bottom:0;
+	margin: 2%;
+}
+
+#toGeoJSON {
+	background-color: #eee;
+	border: #2FBD57 2px solid;
+	color: #2FBD57;
+	padding: 3px;
+	margin: 1%;
+}
+
+#addnote {
+	background-color: #eee;
+	border: #2FBD57 2px solid;
+	color: #2FBD57;
+	padding: 3px;
+	margin: 0.5%;
+}
