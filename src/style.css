@@ -8,12 +8,21 @@ html, #map {
 #save {
 	position: absolute;
 	bottom:0;
+	margin: 2%;
 }
 
 #toGeoJSON {
-	background-color: #ccc;
-	border: #2FBD57 2px;
-	color: black;
+	background-color: #eee;
+	border: #2FBD57 2px solid;
+	color: #2FBD57;
 	padding: 3px;
 	margin: 1%;
+}
+
+#addnote {
+	background-color: #eee;
+	border: #2FBD57 2px solid;
+	color: #2FBD57;
+	padding: 3px;
+	margin: 0.5%;
 }
