@@ -1,12 +1,12 @@
 var osmUrl = 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
 	osmAttrib = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
-	osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib})
-var map = new L.Map('map', {layers: [osm], center: new L.LatLng(40.7809,-73.9789), zoom: 15 });
-
+	osm = L.tileLayer(osmUrl, {maxZoom: 20, attribution: osmAttrib})
+var map = new L.Map('map', {layers: [osm], center: new L.LatLng(40.7809,-73.9789), zoom: 12 });
 
 var thisIcon = L.MakiMarkers.icon({icon:'star-stroked', color: "#feb24c", size: "s"});
 
-//This is some stuff for using your location on the map and adding a popup for orienting yourself
+//This is some stuff for using your location on the map and adding a popup for orienting yourself if that is a thing you need to do
+
 //map.locate({setView: true, maxZoom: 20});
 // function onLocationFound(e) {
 
@@ -15,7 +15,6 @@ var thisIcon = L.MakiMarkers.icon({icon:'star-stroked', color: "#feb24c", size: 
 
 //     L.marker(e.latlng, {icon: youAreHere}).addTo(map).bindPopup("You are approximately here");
 // }
-
 // map.on('locationfound', onLocationFound);
 
 //all the things
