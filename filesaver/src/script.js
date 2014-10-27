@@ -15,9 +15,6 @@ function onLocationFound(e) {
 
 map.on('locationfound', onLocationFound);
 
-//all the things are being stored here
-var things = [];
-
 var drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
 // Set the title to show on the polygon button
@@ -77,10 +74,7 @@ map.on('draw:edited', function (e) {
 
 
 L.DomUtil.get('toGeoJSON').onclick = function() {
-	stringy = JSON.stringify(drawnItems.toGeoJSON());
-	things.push(stringy);
-//extremely hacky thing to make an array do a thing I need
-	var magic = '{"type": "FeatureCollection","features": ['+things+']}'
+	magic = JSON.stringify(drawnItems.toGeoJSON());
 	var blob = new Blob([magic], {type: 'text/plain;charset=utf-8'});
 	saveAs(blob, 'map.geojson');
 };

@@ -15,6 +15,8 @@ function onLocationFound(e) {
 
 map.on('locationfound', onLocationFound);
 
+//all the things are being stored here
+var things = [];
 
 var drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
@@ -33,7 +35,7 @@ draw: {
 		}
 	},
 	polygon: {
-		allowIntersection: false,
+		allowIntersection: true,
 		showArea: true,
 		drawError: {
 			color: '#feb24c',
@@ -43,11 +45,14 @@ draw: {
 			color: '#feb24c'
 		}
 	},
-	circle: false,
-	rectangle: false,
+	circle: {
+		
+	},
+	rectangle: {
+
+	},
 	marker: {icon: thisIcon}
 },
-
 edit: {
 	featureGroup: drawnItems,
 	remove: true
@@ -58,15 +63,9 @@ map.addControl(drawControl);
 
 map.on('draw:created', function (e) {
 	var layer = e.layer;
-	var layers = e.layers;
-	var totalDraw = 0; 
-	layers.eachLayer(function(layer){
-		totalDraw++;
-	})
-	var popupContent = 'This is drawing number '+totalDraw;
+	var layerType = e.layerType;
 	drawnItems.addLayer(layer).bindPopup(popupContent).openPopup();
 });
-
 map.on('draw:edited', function (e) {
 	var layers = e.layers;
 	var countOfEditedLayers = 0;
@@ -75,3 +74,10 @@ map.on('draw:edited', function (e) {
 	});
 	console.log("Edited " + countOfEditedLayers + " layers");
 });
+
+
+L.DomUtil.get('toGeoJSON').onclick = function() {
+	magic = JSON.stringify(drawnItems.toGeoJSON());
+	var blob = new Blob([magic], {type: 'text/plain;charset=utf-8'});
+	saveAs(blob, 'map.geojson');
+};
