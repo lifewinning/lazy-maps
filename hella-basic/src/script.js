@@ -7,7 +7,8 @@ var thisIcon = L.MakiMarkers.icon({icon:'star-stroked', color: "#feb24c", size: 
 
 var drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
-// Set the title to show on the polygon button
+
+// things you can do to the toolbar if you feel like it idk idk
 L.drawLocal.draw.toolbar.buttons.polygon = 'OMFG';
 L.drawLocal.draw.toolbar.buttons.polyline = 'we can label BUTTONS';
 L.drawLocal.draw.toolbar.buttons.marker = 'AWESOME';
@@ -17,6 +18,12 @@ var drawControl = new L.Control.Draw({
 position: 'topright',
 draw: {
 	polyline: {
+		allowIntersection: false,
+		drawError: {
+			color: '#EA53CA',
+			message: 'Hey no intersectionality bro',
+			timeout: 2500
+            },
 		metric: false,
 		shapeOptions:{
 			color: '#feb24c',
@@ -25,14 +32,12 @@ draw: {
 	},
 	polygon: {
 		allowIntersection: false,
-
-		showArea: true,
 		drawError: {
 			color: '#EA53CA',
-			 message: 'Hey no intersectionality bro'
-            },
-			timeout: 1000
-		},
+			message: 'It is actually about ethics in gaming journalism',
+			timeout: 2500
+        },
+		showArea: true,
 		shapeOptions: {
 			color: '#feb24c'
 		}

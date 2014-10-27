@@ -17,9 +17,6 @@ var thisIcon = L.MakiMarkers.icon({icon:'star-stroked', color: "#feb24c", size: 
 // }
 // map.on('locationfound', onLocationFound);
 
-//all the things
-var things = [];
-
 //hellaCheat layer for hella bad choices
 var drawnItems = new L.FeatureGroup();
 var hellaCheat = new L.FeatureGroup();
@@ -97,17 +94,13 @@ map.on('draw:created', function (e) {
 				hellaCheat.clearLayers();
 				//console.log(geojson);		
 			}
-			stringy = JSON.stringify(geojson);
-			things.push(stringy);
-			console.log("geojson" + things);
 		}
 	}
 });
 
 
 L.DomUtil.get('toGeoJSON').onclick = function() {
-//extremely hacky thing to make an array do a thing I need
-	var magic = '{"type": "FeatureCollection","features": ['+things+']}'
+	magic = JSON.stringify(drawnItems.toGeoJSON());
 	var blob = new Blob([magic], {type: 'text/plain;charset=utf-8'});
 	saveAs(blob, 'map.geojson');
 };

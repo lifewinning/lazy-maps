@@ -7,8 +7,6 @@ var thisIcon = L.MakiMarkers.icon({icon:'star-stroked', color: "#feb24c", size: 
 
 var drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
-// Set the title to show on the polygon button
-L.drawLocal.draw.toolbar.buttons.polygon = 'Polygons!';
 
 //set draw controls
 var drawControl = new L.Control.Draw({
